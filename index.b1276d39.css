@@ -1,0 +1,113 @@
+html {
+  color: #2f4f4f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+}
+
+.people {
+  grid-template-columns: repeat(2, 200px);
+  justify-content: center;
+  gap: 40px 30px;
+  padding: 30px 35px 155px;
+  display: grid;
+}
+
+@media (width >= 750px) {
+  .people {
+    padding: 30px 160px 155px;
+  }
+}
+
+@media (width >= 1000px) {
+  .people {
+    grid-template-columns: repeat(4, 200px);
+    padding: 30px 55px 197px;
+  }
+}
+
+@media (width >= 1500px) {
+  .people {
+    padding: 30px 305px 197px;
+  }
+}
+
+.person {
+  width: 200px;
+  transition: transform 1s;
+}
+
+.person:hover {
+  cursor: pointer;
+  z-index: 1;
+  background-color: #eee;
+  border-radius: 12px;
+  margin: -10px -10px -46px;
+  padding: 10px 10px 46px;
+  transform: scale(1.2);
+}
+
+.person:hover .person__photo {
+  border-radius: 60px;
+}
+
+.person:hover .person__extra {
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: 0;
+}
+
+.person__info {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.person__photo {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  transition: border-radius 1s;
+}
+
+.person__rank {
+  color: #8b0000;
+  background-color: #fff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.4px;
+  display: flex;
+  position: absolute;
+  top: 84px;
+  right: 10px;
+}
+
+.person__details {
+  text-align: center;
+  position: relative;
+}
+
+.person__name {
+  font-weight: 700;
+  line-height: 23px;
+}
+
+.person__extra {
+  color: #000;
+  font-size: 18px;
+  line-height: 20.7px;
+  display: none;
+}
+/*# sourceMappingURL=index.b1276d39.css.map */
