@@ -1,1 +1,149 @@
+$person-card-width: 200px;
+$main-text: #2F4F4F;
+$sub-text: #000;
+$card-bg: #EEEEEE;
+$additional-text: #8B0000;
+$additional-bg: #fff;
 
+@mixin on-tablet {
+  @media (min-width: 750px) {
+    @content;
+  }
+} 
+
+@mixin on-desktop-1 {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin on-desktop-2 {
+  @media (min-width: 1500px) {
+    @content;
+  }
+} 
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  color: $main-text;
+}
+
+body {
+  margin: 0;
+}
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(2, $person-card-width);
+  gap: 40px 30px;
+  justify-content: center;
+  padding: 30px 35px 155px;
+
+  @include on-tablet {
+    padding: 30px 160px 155px;
+  }
+
+  @include on-desktop-1() {
+    padding: 30px 55px 197px;
+    grid-template-columns: repeat(4, $person-card-width);
+  }
+
+  @include on-desktop-2() {
+    padding: 30px 305px 197px;
+  }
+}
+
+.person {
+  width: $person-card-width;
+
+  transition: transform 1s;
+
+  &:hover {
+    cursor: pointer;
+
+    margin: -10px -10px -46px;
+    padding: 10px 10px 46px;
+
+    border-radius: 12px;
+
+    background-color: $card-bg;
+
+    transform: scale(120%);
+
+    z-index: 1;
+  }
+
+  &:hover &__photo {
+    border-radius: 60px;
+  }
+
+  &:hover &__extra {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+
+    display: block;
+    text-align: center;
+  }
+
+  &__info {
+    position: relative;
+    
+    width: 200px;
+    height: 200px;
+
+    margin-bottom: 8px;
+  }
+
+  &__photo {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    transition: border-radius 1s;
+  }
+
+  &__rank {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 84px;
+    right: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.4px;
+
+    color: $additional-text;
+    background-color: $additional-bg;
+  }
+
+  &__details {
+    position: relative;
+    text-align: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    line-height: 23px;
+  }
+
+  &__extra {
+    display: none;
+
+    font-size: 18px;
+
+    color: $sub-text;
+    line-height: 20.7px;
+  }
+}
